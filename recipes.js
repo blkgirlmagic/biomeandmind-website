@@ -2,7 +2,7 @@
 var recipeImageManifest = {
   fermented: [
     "fresh_sauerkraut_salad_bowl_top-down_view_vibran_a38e99ce-88ac-4e4b-b6a3-99962e468c46_2.png",
-    "pickeled veggie_bowl_with_pickled_vegetable_8ffb4ce2-ef94-4feb-a915-0bfd7a59285f_1.png",
+    "pickeled_veggie_bowl_with_pickled_vegetable_8ffb4ce2-ef94-4feb-a915-0bfd7a59285f_1.png",
     "slippery_creamy_porridge_bowl_with_soft_lighting_calming__2e6ea53a-4455-4aa5-96b2-12222fc9a98e_3.png",
     "kefir_berry_smoothie_with_subtle_green_accent_a578f8ce-c5f6-46d7-8e41-7a3a2c1f8438_0.png",
     "kimchi_fried_rice_in_white_bowl_slightly_red-ora_8bc7dbb4-f05c-4792-8c2e-943ac5197b8d_3.png",

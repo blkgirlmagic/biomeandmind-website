@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "mcp__Claude_Preview__preview_start",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(ls recipes/fermented/*.png)",
+      "Bash(ls \"I:/biomeandmind_website/biomeandmind-web/recipes/fermented/\"*pickled* \"I:/biomeandmind_website/biomeandmind-web/recipes/fermented/\"*pickeled*)"
     ]
   }
 }
