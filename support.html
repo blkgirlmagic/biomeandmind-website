@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Support — BiomeAndMind</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --green: #27AE60; --green-dark: #1a7a42; --green-deep: #0F3320;
+  --green-light: #E8F5EE; --cream: #F0F5E8; --text: #0F3320; --text-muted: #5A6B52;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
+nav {
+  padding: 20px 48px; display: flex; justify-content: space-between;
+  align-items: center; background: rgba(240,245,232,0.95);
+  backdrop-filter: blur(20px); border-bottom: 1px solid rgba(39,174,96,0.1);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--green-deep); text-decoration: none; }
+.nav-logo span { color: var(--green); }
+.nav-back { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.nav-back:hover { color: var(--green); }
+
+.hero-support {
+  background: var(--green-deep);
+  padding: 80px 48px;
+  text-align: center;
+}
+.hero-support h1 { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: white; margin-bottom: 16px; }
+.hero-support p { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 32px; }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green); color: white;
+  padding: 16px 32px; border-radius: 100px;
+  font-size: 16px; font-weight: 600; text-decoration: none;
+  transition: all 0.2s;
+}
+.contact-btn:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+.content { max-width: 900px; margin: 0 auto; padding: 72px 48px; }
+
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+
+.faq-item {
+  background: white; border-radius: 20px; padding: 28px;
+  border: 1px solid rgba(39,174,96,0.08);
+  transition: all 0.3s;
+}
+.faq-item:hover { border-color: rgba(39,174,96,0.2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(15,51,32,0.06); }
+
+.faq-icon { font-size: 28px; margin-bottom: 12px; }
+.faq-q { font-size: 16px; font-weight: 700; color: var(--green-deep); margin-bottom: 10px; }
+.faq-a { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+.section-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--green-deep); margin-bottom: 8px; }
+.section-sub { font-size: 16px; color: var(--text-muted); }
+
+.contact-section { margin-top: 72px; background: var(--green-deep); border-radius: 28px; padding: 56px; text-align: center; }
+.contact-section h2 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: white; margin-bottom: 12px; }
+.contact-section p { font-size: 16px; color: rgba(255,255,255,0.6); margin-bottom: 28px; }
+.contact-email {
+  display: inline-block;
+  background: var(--green); color: white;
+  padding: 14px 32px; border-radius: 100px;
+  font-size: 16px; font-weight: 600; text-decoration: none;
+  transition: all 0.2s;
+}
+.contact-email:hover { background: var(--green-dark); }
+
+footer { background: var(--green-deep); padding: 32px 48px; text-align: center; margin-top: 80px; }
+.footer-copy { font-size: 13px; color: rgba(255,255,255,0.3); }
+.footer-links { display: flex; gap: 24px; justify-content: center; margin-top: 12px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none; }
+.footer-links a:hover { color: var(--green); }
+
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .hero-support { padding: 60px 24px; }
+  .hero-support h1 { font-size: 36px; }
+  .content { padding: 48px 24px; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .contact-section { padding: 40px 24px; }
+  footer { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">Biome<span>&</span>Mind</a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<div class="hero-support">
+  <h1>How can we help?</h1>
+  <p>Find answers to common questions or reach out directly. We're here for you.</p>
+  <a href="mailto:support@biomeandmind.com" class="contact-btn">
+    ✉️ Email Support
+  </a>
+</div>
+
+<div class="content">
+  <p class="section-title">Frequently Asked Questions</p>
+  <p class="section-sub">Everything you need to know about BiomeAndMind.</p>
+
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-icon">🧠</div>
+      <div class="faq-q">What is the Gut-Brain Score?</div>
+      <div class="faq-a">Your Gut-Brain Score (0–100) is calculated from your daily probiotic intake, fiber consumption, sleep hours, mood, and energy levels. It reflects how well you're supporting your gut-brain connection on any given day.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-icon">🤖</div>
+      <div class="faq-q">How does the AI Insights feature work?</div>
+      <div class="faq-a">AI Insights uses Claude (by Anthropic) to analyze your personal health data and generate specific, science-backed recommendations. Your data is sent through a secure proxy — never stored by the AI provider.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-icon">🔒</div>
+      <div class="faq-q">Is my health data private?</div>
+      <div class="faq-a">Yes. Your health data is stored locally on your device. We never sell your data. AI processing uses anonymized data through encrypted connections. You can delete all data at any time in Settings.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-icon">💳</div>
+      <div class="faq-q">How does the free trial work?</div>
+      <div class="faq-a">Monthly and yearly plans include a 7-day free trial. No credit card is required to start. If you cancel before the trial ends, you won't be charged. Lifetime access is a one-time purchase with no trial period.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-icon">📱</div>
+      <div class="faq-q">What iPhone models are supported?</div>
+      <div class="faq-a">BiomeAndMind requires iOS 17.0 or later. It's optimized for iPhone but also works on iPad. An internet connection is required for AI Insights features.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-icon">🔄</div>
+      <div class="faq-q">How do I restore my subscription?</div>
+      <div class="faq-a">Open the app → Inner Circle → Settings → scroll to the bottom → tap "Restore Purchase." Your subscription will be restored if you're signed in with the same Apple ID used to purchase.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-icon">❌</div>
+      <div class="faq-q">How do I cancel my subscription?</div>
+      <div class="faq-a">Subscriptions are managed through Apple. Go to your iPhone Settings → Apple ID → Subscriptions → BiomeAndMind → Cancel Subscription. You'll retain access until the end of your billing period.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-icon">🗑️</div>
+      <div class="faq-q">How do I delete my data?</div>
+      <div class="faq-a">Go to Inner Circle → Settings → Reset All Data. This permanently deletes all health logs, scores, and preferences from your device. This action cannot be undone.</div>
+    </div>
+  </div>
+
+  <div class="contact-section">
+    <h2>Still need help?</h2>
+    <p>Our support team typically responds within 24 hours.</p>
+    <a href="mailto:support@biomeandmind.com" class="contact-email">support@biomeandmind.com</a>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-copy">© 2026 BiomeAndMind. Not medical advice. Consult a healthcare professional before making dietary changes.</p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="support.html">Support</a>
+  </div>
+</footer>
+</body>
+</html>
