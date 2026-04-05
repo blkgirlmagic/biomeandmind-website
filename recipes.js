@@ -456,7 +456,7 @@ function renderRecipeCards() {
     var html = '';
 
     recipes.forEach(function(r, idx) {
-      html += '<div class="recipe-card reveal" onclick="openRecipeDetail(\'' + catId + '\',' + idx + ')">';
+      html += '<div class="recipe-card" onclick="openRecipeDetail(\'' + catId + '\',' + idx + ')">';
       html += '  <div class="recipe-card-thumb">';
       if (r.image) {
         html += '    <img src="' + encodeURI(r.image) + '" alt="' + escapeHtml(r.name) + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'">';
