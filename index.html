@@ -861,6 +861,81 @@ nav {
   box-shadow: 0 16px 48px rgba(0,0,0,0.2);
 }
 
+/* EMAIL SIGNUP */
+.section-email-signup {
+  padding: 80px 48px;
+  text-align: center;
+  background: var(--bg);
+}
+
+.email-signup-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.email-signup-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+.email-signup-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.email-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 100px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.email-input:focus {
+  border-color: var(--green);
+}
+
+.email-submit-btn {
+  padding: 14px 32px;
+  background: var(--green);
+  color: white;
+  border: none;
+  border-radius: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(39,174,96,0.35);
+}
+
+.email-submit-btn:hover {
+  background: var(--green-dark);
+  transform: translateY(-2px);
+}
+
+.email-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.email-success {
+  display: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--green);
+  margin-top: 24px;
+}
+
 /* FOOTER */
 footer {
   background: var(--green-deep);
@@ -1073,6 +1148,10 @@ footer {
   .pricing-card.featured { transform: none; }
 
   .section-cta { padding: 72px 24px; }
+
+  .section-email-signup { padding: 60px 24px; }
+  .email-signup-title { font-size: 32px; }
+  .email-signup-form { flex-direction: column; }
 
   footer { padding: 48px 24px 32px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -1404,6 +1483,17 @@ footer {
   <p class="cta-disclaimer" style="max-width:540px;margin:20px auto 0;font-size:12px;color:rgba(255,255,255,0.45);text-align:center;line-height:1.6;">BiomeAndMind is a wellness tracking tool and does not provide medical advice. Results may vary. Always consult a qualified healthcare professional before making changes to your diet or wellness routine.</p>
 </section>
 
+<!-- EMAIL SIGNUP -->
+<section class="section-email-signup" id="community">
+  <h2 class="email-signup-title reveal">Join the Community</h2>
+  <p class="email-signup-sub reveal">Be among the first 100 members</p>
+  <form class="email-signup-form reveal" id="emailSignupForm" onsubmit="return handleEmailSignup(event)">
+    <input type="email" id="signupEmail" class="email-input" placeholder="Enter your email" required />
+    <button type="submit" class="email-submit-btn" id="signupBtn">Submit</button>
+  </form>
+  <p class="email-success" id="emailSuccess">You're in! 💚<br/>We'll be in touch soon.</p>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -1441,6 +1531,52 @@ footer {
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="recipes.js"></script>
+<script>
+// Email Signup — Supabase
+var SUPABASE_URL = 'https://ntcmrgusdcfsmhpncoq.supabase.co';
+var SUPABASE_KEY = 'ZPiRjXTWvU69IKB0';
+
+async function handleEmailSignup(e) {
+  e.preventDefault();
+  var email = document.getElementById('signupEmail').value.trim();
+  var btn = document.getElementById('signupBtn');
+  if (!email) return false;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  try {
+    var res = await fetch(SUPABASE_URL + '/rest/v1/email_signups', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_KEY,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ email: email })
+    });
+
+    if (res.ok || res.status === 201) {
+      document.getElementById('emailSignupForm').style.display = 'none';
+      document.getElementById('emailSuccess').style.display = 'block';
+    } else {
+      var data = await res.json().catch(function() { return {}; });
+      if (data.code === '23505') {
+        document.getElementById('emailSignupForm').style.display = 'none';
+        document.getElementById('emailSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    }
+  } catch (err) {
+    btn.textContent = 'Try again';
+    btn.disabled = false;
+  }
+  return false;
+}
+</script>
 <script>
 function switchRecipeTab(tabId, btn) {
   document.querySelectorAll('.recipe-tab').forEach(t => t.classList.remove('active'));
